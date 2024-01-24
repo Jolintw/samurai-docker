@@ -171,7 +171,7 @@ bool VarDriverThermo::initialize(const QDomElement& configuration)
     		
 	/* Optionally load a set of background estimates and interpolate to the Gaussian mish */
 	
-	QString metFile = "20050920_18.nc";
+	QString metFile = "20220606_06.nc";
 	
 	if(!this->loadObservations(metFile, &obVector)) {
 	// For testing purposes, comment out line above and use this one instead: if(!this->testing(&obVector)) {
