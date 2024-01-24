@@ -365,8 +365,8 @@ double NetCDF_XYZ::calc_A(const int &i,const int &j,const int &k)
   
   //double a = (u*dudx+v*dudy+w*dudz+vtbar*vtbar/radius*cos(azimuth)-f*vprime);
   //double a = (u*dudx+v*dudy+w*dudz+vtbar*vtbar/radius*cos(azimuth)-f*vprime)+c_p*dpibdx*trp;		//If pip only
-  double a = (u*dudx+v*dudy+w*dudz+vtbar*vtbar/radius*cos(azimuth)-f*vprime)+c_p*thetarhobar*dpipdx;   //If trp only  
-  
+  //double a = (u*dudx+v*dudy+w*dudz+vtbar*vtbar/radius*cos(azimuth)-f*vprime)+c_p*thetarhobar*dpipdx;   //If trp only  
+  double a = (u*dudx+v*dudy+w*dudz-f*v)+c_p*thetarhobar*dpipdx; // the form of FB2017 eq 10
 	return a;	
 }
 
@@ -394,7 +394,8 @@ double NetCDF_XYZ::calc_B(const int &i,const int &j,const int &k)
     
   //double b = (u*dvdx+v*dvdy+w*dvdz+vtbar*vtbar/radius*sin(azimuth)+f*uprime);
   //double b = (u*dvdx+v*dvdy+w*dvdz+vtbar*vtbar/radius*sin(azimuth)+f*uprime)+c_p*dpibdy*trp;   //If pip only
-  double b = (u*dvdx+v*dvdy+w*dvdz+vtbar*vtbar/radius*sin(azimuth)+f*uprime)+c_p*thetarhobar*dpipdy;   //If trp only
+  //double b = (u*dvdx+v*dvdy+w*dvdz+vtbar*vtbar/radius*sin(azimuth)+f*uprime)+c_p*thetarhobar*dpipdy;   //If trp only
+  double b = (u*dvdx+v*dvdy+w*dvdz+f*u)+c_p*thetarhobar*dpipdy; // the form of FB2017 eq 11
   return b;	
 }
 
